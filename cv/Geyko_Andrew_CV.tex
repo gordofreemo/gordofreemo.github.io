@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%
+% CV of Andrew Geyko — based on LianTze Lim's curve template
+% (https://www.overleaf.com/latex/templates/curve-cv)
+% Public version for the website: no phone number, birth date or residence status.
+% Build: latexmk -pdf Geyko_Andrew_CV.tex, then copy the PDF to ../files/cv.pdf
+%
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+
+% Most commands and style definitions are in settings.sty.
+\usepackage{settings}
+
+\hypersetup{pdftitle={Andrew Geyko - Curriculum Vitae},pdfauthor={Andrew Geyko}}
+
+% Using for left margins in itemize package to not indent
+\usepackage{enumitem}
+
+% Change the fonts if you want
+\ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage[medium,bold]{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\else % If you're using pdfLaTeX or latex
+  \usepackage[T1]{fontenc}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\fi
+
+%% Photo is only shown if "fullonly" is included
+\includecomment{fullonly}
+% \excludecomment{fullonly}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\leftheader{%
+  {\LARGE\bfseries\sffamily Andrew Geyko}
+
+  \makebox[1.4em]{\color{MarkerColour!80!black}\faEnvelope[regular]}\href{mailto:ange00008@uni-saarland.de}{\texttt{ange00008@uni-saarland.de}}\hspace{1.2em}%
+  \makebox[1.4em]{\color{MarkerColour!80!black}\faGlobe}\href{https://gordofreemo.github.io}{\texttt{gordofreemo.github.io}}
+
+  \makebox[1.4em]{\color{MarkerColour!80!black}\faGithub}\href{https://github.com/gordofreemo}{gordofreemo}\hspace{1.2em}%
+  \makebox[1.4em]{\color{MarkerColour!80!black}\faLinkedin}\href{https://www.linkedin.com/in/andrew-geyko-62b41a22b/}{LinkedIn}\hspace{1.2em}%
+  \makebox[1.4em]{\color{MarkerColour!80!black}\faGraduationCap}\href{https://scholar.google.com/citations?hl=en&user=UWUIe8QAAAAJ}{Scholar}
+}
+
+\rightheader{%
+  \small\raggedright
+  \makebox[1.2em]{\color{MarkerColour!80!black}\faMapMarker} Saarbr\"ucken, Germany
+}
+
+\begin{fullonly}
+\photo[r]{Andrew_Photo2_cv}
+\photoscale{0.12}
+\end{fullonly}
+
+% Slightly tighter vertical margins to fit two pages
+\geometry{vmargin=1.7cm}
+
+\title{Curriculum Vitae}
+
+\begin{document}
+\makeheaders[c]
+
+\makerubrichead{Profile}
+PhD student in computer science at Saarland University, advised by Prof.\ Andr\'e Brinkmann. I work on system-model co-design for machine learning, mostly where compute and memory are limited, such as on-device training and personalization, and KV-cache management for LLM inference. Before that I worked on scalable MPI communication (first author, IEEE HiPC~2024) and on the energy cost of distributed LLM training.
+\par
+
+\makerubric{education}
+\makerubric{employment}
+
+%% Publication list is hardcoded — no biblatex needed.
+\input{publications}
+
+\makerubric{skills}
+\makerubric{misc}
+
+\vspace{1em}
+\noindent Saarbr\"ucken, 20.10.2026
+
+\end{document}
